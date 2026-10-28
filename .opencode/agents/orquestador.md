@@ -336,7 +336,8 @@ con el código o cambios posteriores al QA bloquean el avance: devuelve al rol/f
 pertinente, sin pedir al documentador que encubra la diferencia.
 
 No consideres generados Textile, XML o informes de navegador: esos entregables
-no forman parte del contrato actual de este flujo Markdown.
+no forman parte del contrato actual de este flujo Markdown. La exportación TestLink
+es un agente independiente y no se lanza ni se exige desde este flujo.
 
 ### Fase 6. Propuesta de cierre y aceptación
 

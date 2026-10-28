@@ -41,8 +41,9 @@ relativos a ese directorio; las rutas de código se identifican como relativas a
 | Documentador | `descripcion-tecnica.md` |
 
 Los entregables mínimos de cada rol se definen en su agente. Todos son Markdown.
-Textile, XML TestLink y ejecución en navegador son extensiones posteriores, no
-fases implícitas de este flujo inicial.
+Textile y ejecución en navegador son extensiones posteriores, no fases implícitas.
+La exportación TestLink existe como agente independiente (`testlink-exportador`),
+fuera de las fases y sin actualizar `estado.md`.
 
 ## 3. Estados y transiciones
 

@@ -24,6 +24,8 @@ proyecto seleccionado. Los roles están definidos en `.opencode/agents/`.
 - Si `modo_codigo` es `solo-lectura`, no edites el destino ni ejecutes builds,
   tests, generadores o comandos que puedan escribir en él.
 - No hagas commits, publicaciones, despliegues ni cierres de tickets externos.
+- El agente `testlink-exportador` queda fuera del flujo: se ejecuta por petición
+  explícita, no actualiza estados y no se delega desde el orquestador.
 - Solo el orquestador delega las fases en los agentes nombrados. Los subagentes
   no delegan ni preguntan al usuario: devuelven preguntas al orquestador.
 - No ejecutes dos tareas que escriban simultáneamente en la misma copia de

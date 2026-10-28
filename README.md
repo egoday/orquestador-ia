@@ -35,6 +35,7 @@ flujo/plantillas/proyecto.md               Plantilla para registrar proyectos
 proyectos/<proyecto>/proyecto.md           Ruta, modo y normativa del destino
 proyectos/<proyecto>/contexto/             Particularidades técnicas
 proyectos/<proyecto>/tareas/<id-tarea>/    Estado y entregables por tarea
+docs/testlink/README.md                    Contrato del exportador independiente
 docs/comparacion-flujo-original.md         Correspondencias con la referencia
 ```
 
@@ -57,6 +58,17 @@ de roles y del flujo nuevo son independientes y están completas en este espacio
 El flujo mantiene aprobación humana del análisis y del cierre, así como un máximo
 inicial de tres implementaciones con QA. Los comandos individuales comprueban los
 mismos prerrequisitos y guardan el siguiente paso para reanudar con `/tarea`.
+
+## Agente independiente: TestLink
+
+`testlink-exportador` convierte un `plan-pruebas.md` en suites y casos XML para
+TestLink. No pertenece al flujo: no se lanza desde `/tarea`, no actualiza el estado
+y no ejecuta pruebas ni importa el XML.
+
+Selecciónalo directamente como agente en OpenCode o pide a `build` que lo invoque.
+El contrato, las peticiones de ejemplo y la importación se documentan en
+`docs/testlink/README.md`. Las salidas van a la carpeta `testlink/` de la tarea o,
+si el plan es externo, a `docs/testlink/`; nunca al proyecto destino.
 
 ## Dos raíces
 
@@ -117,16 +129,17 @@ actualiza esas reglas además de la ruta del perfil.
 - Los permisos shell no son un sandbox. La configuración inicial restringe shell
   a consultas; habilitar comandos de build implica permitir sus efectos.
 - El estado es Markdown y requiere conservar sus campos al editarlo manualmente.
-- TestLink, Textile y ejecución en navegador se describen como extensiones en la
-  comparación, y todavía no forman parte de esta implementación inicial.
+- La exportación TestLink existe como agente independiente, fuera del flujo. Textile
+  y la ejecución en navegador siguen siendo extensiones no implementadas.
 
 ## Validación
 
 Configuración escrita con la sintaxis documentada de OpenCode V2. La comprobación
 estática de archivos y referencias no sustituye a una tarea real con agentes.
-Validación inicial realizada: parseo JSON y YAML con Python/PyYAML, seis agentes,
-siete comandos con agente existente, perfil con ruta válida y regla de protección
-de edición correspondiente. Resultado: correcto. No se ha ejecutado el ciclo
-funcional ni se ha validado un build del proyecto destino.
+Validación inicial realizada: parseo JSON y YAML con Python/PyYAML, seis agentes
+del flujo y el exportador TestLink independiente, siete comandos con agente
+existente, perfil con ruta válida y regla de protección de edición correspondiente.
+Resultado: correcto. No se ha ejecutado el ciclo funcional ni se ha validado un
+build del proyecto destino.
 La primera ejecución funcional recomendada es `/analisis` sobre una solicitud
 concreta, seguida de `/tarea-estado` en otra sesión para comprobar reanudación.

@@ -25,7 +25,7 @@ expresa. No se han iniciado tareas ni ejecutado agentes sobre el código destino
 ## Organización
 
 ```text
-.opencode/agents/                         Roles comunes y permisos por rol
+.opencode/agents/                         Agentes del flujo e independientes
 .opencode/commands/                       Comandos del flujo
 .opencode/opencode.jsonc                  Configuración y accesos locales
 AGENTS.md                                Contrato general del espacio
@@ -36,6 +36,7 @@ proyectos/<proyecto>/proyecto.md           Ruta, modo y normativa del destino
 proyectos/<proyecto>/contexto/             Particularidades técnicas
 proyectos/<proyecto>/tareas/<id-tarea>/    Estado y entregables por tarea
 docs/testlink/README.md                    Contrato del exportador independiente
+docs/ejecucion-plan/README.md              Contrato del ejecutor independiente
 docs/comparacion-flujo-original.md         Correspondencias con la referencia
 ```
 
@@ -59,7 +60,9 @@ El flujo mantiene aprobación humana del análisis y del cierre, así como un m�
 inicial de tres implementaciones con QA. Los comandos individuales comprueban los
 mismos prerrequisitos y guardan el siguiente paso para reanudar con `/tarea`.
 
-## Agente independiente: TestLink
+## Agentes independientes
+
+### TestLink
 
 `testlink-exportador` convierte un `plan-pruebas.md` en suites y casos XML para
 TestLink. No pertenece al flujo: no se lanza desde `/tarea`, no actualiza el estado
@@ -69,6 +72,18 @@ Selecciónalo directamente como agente en OpenCode o pide a `build` que lo invoq
 El contrato, las peticiones de ejemplo y la importación se documentan en
 `docs/testlink/README.md`. Las salidas van a la carpeta `testlink/` de la tarea o,
 si el plan es externo, a `docs/testlink/`; nunca al proyecto destino.
+
+### Ejecución de planes con navegador
+
+`ejecutor-plan-pruebas` ejecuta escenarios de un plan contra una URL desplegada
+con las herramientas de navegador. Tampoco pertenece al flujo: no se lanza desde
+`/tarea`, no actualiza el estado y no modifica código ni planes.
+
+Selecciónalo directamente o pide a `build` que lo invoque. Requiere URL, plan y
+autorización explícita para escribir datos; por defecto solo consulta. El informe
+y las evidencias se guardan en `ejecucion-plan/` dentro de la tarea o en
+`docs/ejecucion-plan/` si el plan es externo. El contrato y los límites se
+documentan en `docs/ejecucion-plan/README.md`.
 
 ## Dos raíces
 
@@ -129,17 +144,20 @@ actualiza esas reglas además de la ruta del perfil.
 - Los permisos shell no son un sandbox. La configuración inicial restringe shell
   a consultas; habilitar comandos de build implica permitir sus efectos.
 - El estado es Markdown y requiere conservar sus campos al editarlo manualmente.
-- La exportación TestLink existe como agente independiente, fuera del flujo. Textile
-  y la ejecución en navegador siguen siendo extensiones no implementadas.
+- La exportación TestLink y la ejecución de planes con navegador existen como
+  agentes independientes, fuera del flujo. Textile sigue sin implementarse.
+- Las pestañas del navegador comparten sesión; el ejecutor no puede acreditar
+  concurrencia entre roles distintos sin sesiones independientes.
 
 ## Validación
 
 Configuración escrita con la sintaxis documentada de OpenCode V2. La comprobación
 estática de archivos y referencias no sustituye a una tarea real con agentes.
 Validación inicial realizada: parseo JSON y YAML con Python/PyYAML, seis agentes
-del flujo y el exportador TestLink independiente, siete comandos con agente
-existente, perfil con ruta válida y regla de protección de edición correspondiente.
-Resultado: correcto. No se ha ejecutado el ciclo funcional ni se ha validado un
+del flujo y dos agentes independientes (TestLink y ejecución de planes), siete
+comandos con agente existente, perfil con ruta válida y regla de protección de
+edición correspondiente. Resultado: correcto. No se ha ejecutado el ciclo
+funcional, ni el agente de navegador contra un entorno real, ni se ha validado un
 build del proyecto destino.
 La primera ejecución funcional recomendada es `/analisis` sobre una solicitud
 concreta, seguida de `/tarea-estado` en otra sesión para comprobar reanudación.

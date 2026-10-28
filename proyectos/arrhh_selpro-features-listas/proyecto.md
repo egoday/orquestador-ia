@@ -19,6 +19,12 @@ Los análisis y otros entregables autorizados se guardan aquí, en `tareas/`.
 El paso a `desarrollo` requiere una petición posterior explícita y ajustar los
 permisos descritos en `README.md` del orquestador.
 
+La restricción de tests se refiere a comandos sobre la copia (Maven, generadores y
+similares). La ejecución funcional con navegador contra una URL desplegada usa el
+agente independiente `ejecutor-plan-pruebas`: no modifica la copia, pero requiere
+que el usuario indique entorno, URL y autorización de datos. El modo `solo-lectura`
+no autoriza por sí solo escrituras en la aplicación.
+
 ## Normativa técnica (rutas relativas al código)
 
 Leer `CONVENTIONS.md`, `AGENTS.md`, `GLOSSARY.md`, `DECISIONS.md`, `TESTING.md`

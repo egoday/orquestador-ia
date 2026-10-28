@@ -335,9 +335,9 @@ limitaciones, texto de cierre y mensaje de commit propuesto. Las discrepancias
 con el código o cambios posteriores al QA bloquean el avance: devuelve al rol/fase
 pertinente, sin pedir al documentador que encubra la diferencia.
 
-No consideres generados Textile, XML o informes de navegador: esos entregables
-no forman parte del contrato actual de este flujo Markdown. La exportación TestLink
-es un agente independiente y no se lanza ni se exige desde este flujo.
+No consideres generados Textile, XML ni informes de navegador dentro de este flujo
+Markdown. La exportación TestLink y la ejecución funcional con navegador son
+agentes independientes y no se lanzan ni se exigen desde aquí.
 
 ### Fase 6. Propuesta de cierre y aceptación
 

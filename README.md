@@ -48,6 +48,7 @@ de roles y del flujo nuevo son independientes y están completas en este espacio
 
 | Comando | Argumentos | Alcance |
 |---|---|---|
+| `/proyecto` | id ruta [vcs] [modo] | Alta de proyecto externo |
 | `/tarea` | proyecto descripción-o-id | Flujo completo o reanudación |
 | `/tarea-estado` | [proyecto] [id] | Consulta sin modificaciones |
 | `/analisis` | proyecto descripción-o-id [feedback] | Análisis y aprobación |
@@ -59,6 +60,8 @@ de roles y del flujo nuevo son independientes y están completas en este espacio
 El flujo mantiene aprobación humana del análisis y del cierre, así como un máximo
 inicial de tres implementaciones con QA. Los comandos individuales comprueban los
 mismos prerrequisitos y guardan el siguiente paso para reanudar con `/tarea`.
+`/proyecto` es un alta de mantenimiento: crea el perfil y el contexto inicial, pero
+no crea tareas ni ejecuta fases.
 
 ## Agentes independientes
 
@@ -96,9 +99,14 @@ agentes, crear enlaces simbólicos ni instalar configuración en los otros proye
 
 ## Registrar otro proyecto
 
-Usa `build` para mantener este espacio:
-Este agente puede solicitar ejecutar Python para validar los archivos locales;
-los agentes del flujo conservan shell limitado a consultas.
+La vía recomendada es `/proyecto <id> <ruta> [vcs] [modo]`. Crea el perfil, el
+contexto inicial y `tareas/README.md`, valida que la ruta exista y propone las
+reglas de acceso. No crea ni modifica el proyecto destino. El modo predeterminado
+es `solo-lectura`.
+
+Si prefieres revisar cada paso manualmente, usa `build` para mantener este espacio:
+Este agente puede solicitar ejecutar Python para validar los archivos locales; los
+agentes del flujo conservan shell limitado a consultas.
 
 1. Copia `flujo/plantillas/proyecto.md` a `proyectos/<id>/proyecto.md`.
 2. Define ruta, VCS, normativa, contexto y comandos reales de validación.
@@ -154,7 +162,7 @@ actualiza esas reglas además de la ruta del perfil.
 Configuración escrita con la sintaxis documentada de OpenCode V2. La comprobación
 estática de archivos y referencias no sustituye a una tarea real con agentes.
 Validación inicial realizada: parseo JSON y YAML con Python/PyYAML, seis agentes
-del flujo y dos agentes independientes (TestLink y ejecución de planes), siete
+del flujo y dos agentes independientes (TestLink y ejecución de planes), ocho
 comandos con agente existente, perfil con ruta válida y regla de protección de
 edición correspondiente. Resultado: correcto. No se ha ejecutado el ciclo
 funcional, ni el agente de navegador contra un entorno real, ni se ha validado un

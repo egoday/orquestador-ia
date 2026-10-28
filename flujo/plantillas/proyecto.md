@@ -7,7 +7,8 @@ modo_codigo: solo-lectura
 
 # Nombre del proyecto
 
-Plantilla: sustituir los valores antes de registrar el perfil.
+Plantilla manual. La vía recomendada es `/proyecto <id> <ruta> [vcs] [modo]`.
+Si la usas manualmente, sustituye los valores antes de registrar el perfil.
 `raiz_codigo` se resuelve desde la raíz del orquestador. `vcs` puede ser `svn`,
 `git` o `ninguno`; para este último, documentar cómo identificar la base y los
 cambios sin inventar una revisión de VCS.

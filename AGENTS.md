@@ -35,5 +35,7 @@ proyecto seleccionado. Los roles están definidos en `.opencode/agents/`.
 ## Mantenimiento de este espacio
 
 Usa el agente `build` para modificar agentes, perfiles, comandos y plantillas.
+El comando `/proyecto` automatiza el alta de un perfil, su contexto inicial y la
+carpeta de tareas; no crea ni modifica el código destino ni inicia tareas.
 El agente `orquestador` solo modifica estados de tareas. Mantén las definiciones
 autocontenidas: no deben cargar agentes del proyecto de referencia.

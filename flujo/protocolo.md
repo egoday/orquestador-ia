@@ -2,6 +2,9 @@
 
 ## 1. Identidad y rutas
 
+El alta de un proyecto se realiza con `/proyecto`; no crea una tarea ni un estado.
+La inicialización no autoriza desarrollo ni escrituras en el destino.
+
 La clave de una tarea es `(proyecto, id-tarea)`. El identificador es
 `yyyyMMdd-slug-descriptivo`, con sufijo numérico si hay colisión. No contiene
 separadores ni `..`. La fecha y el identificador no cambian al reanudar.

@@ -77,7 +77,8 @@ los agentes del flujo conservan shell limitado a consultas.
 2. Define ruta, VCS, normativa, contexto y comandos reales de validación.
 3. Crea `contexto/` y `tareas/` cuando tengan contenido. Empieza en solo lectura.
 4. Añade acceso `external_directory` a su raíz canónica en la configuración.
-   Los permisos externos usan rutas absolutas: no se interpolan desde el perfil.
+   Puedes escribirla relativa al home (`~/...` o `$HOME/...`): OpenCode expande
+   ambas formas. No se interpola desde el perfil.
 5. Para mantenerlo en consulta, añade las reglas de denegación de edición como
    las del perfil ARRHH. Verifica que la ruta resuelta corresponde al destino.
 6. Prueba primero un análisis y la consulta de su estado.
@@ -92,10 +93,10 @@ Este es un cambio de configuración deliberado, no un efecto de aprobar un anál
 Cuando el usuario autorice trabajar en un destino:
 
 1. Cambia su `modo_codigo` a `desarrollo`.
-2. Retira únicamente las denegaciones globales y políticas de edición de esa raíz.
+2. Retira únicamente las denegaciones de edición de esa raíz.
 3. En `.opencode/agents/desarrollador.md`, después del `edit: * → deny`, añade
-   reglas `edit → allow` para los directorios de código autorizados mediante rutas
-   absolutas. Añade después exclusiones de generados y metadatos del VCS.
+   reglas `edit → allow` para los directorios de código autorizados, usando rutas
+   `~/...` o absolutas. Añade después exclusiones de generados y metadatos del VCS.
 4. Añade permisos shell específicos a desarrollador y QA para los comandos de
    compilación/tests del perfil. Actualmente solo se permiten consultas de VCS y
    fecha. Mantén bloqueados commits, publicaciones y despliegues. QA conserva
@@ -103,8 +104,9 @@ Cuando el usuario autorice trabajar en un destino:
 5. Valida la configuración y realiza una tarea pequeña, comprobando aprobación,
    implementación, QA, documentación y reanudación antes de ampliar el uso.
 
-Los permisos actuales contienen la ruta absoluta de ARRHH en esta máquina. Si
-mueves las carpetas, actualiza esas reglas además de la ruta del perfil.
+Los permisos de ARRHH usan `~/code/rrhh/arrhh_selpro-features-listas/*`, relativa
+al home. Sigue suponiendo esa disposición de carpetas: si mueves el proyecto,
+actualiza esas reglas además de la ruta del perfil.
 
 ## Límites actuales
 

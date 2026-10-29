@@ -9,11 +9,13 @@
     }
   },
   "permissions": [
-    // Rutas del destino relativas al home; OpenCode expande ~ y $HOME en
-    // external_directory y edit. Ajustar si cambia la ubicación del proyecto.
+    // Único destino externo habilitado. La edición se deniega por defecto;
+    // solo desarrollador añade una excepción en su definición de agente.
     { "action": "external_directory", "resource": "*", "effect": "ask" },
-    { "action": "external_directory", "resource": "~/code/rrhh/arrhh_selpro-features-listas/*", "effect": "allow" },
-    { "action": "edit", "resource": "~/code/rrhh/arrhh_selpro-features-listas/*", "effect": "deny" },
+    { "action": "external_directory", "resource": "~/code/*", "effect": "allow" },
+    { "action": "edit", "resource": "~/code/*", "effect": "deny" },
+    // Orquestador conserva solo consultas. Maven requiere confirmación y se
+    // habilita únicamente en desarrollador y QA, no en esta lista compartida.
     { "action": "shell", "resource": "*", "effect": "deny" },
     { "action": "shell", "resource": "date *", "effect": "allow" },
     { "action": "shell", "resource": "svn status *", "effect": "allow" },

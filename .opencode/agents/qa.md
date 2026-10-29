@@ -6,6 +6,7 @@ steps: 100
 permissions:
   - { action: edit, resource: "*", effect: deny }
   - { action: edit, resource: "proyectos/*/tareas/*/qa-*.md", effect: allow }
+  - { action: shell, resource: "mvn *", effect: allow }
   - { action: subagent, resource: "*", effect: deny }
   - { action: question, resource: "*", effect: deny }
 ---

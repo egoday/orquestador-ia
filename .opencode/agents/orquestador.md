@@ -316,7 +316,13 @@ Lee el veredicto del documento y sus evidencias:
 - **BLOQUEADO:** registra causa y fase de retorno QA. La falta de entorno o permiso
   no es automáticamente un defecto ni autoriza iterar cambios de código.
 
-Si el encabezado APTO contradice pruebas obligatorias pendientes/fallidas o criterios
+Las pruebas funcionales las realizará el cliente tras la entrega en SVN; la
+cobertura mínima es responsabilidad de implementación. Su ejecución o acreditación
+no es requisito de QA APTO ni de avance a documentación o propuesta de cierre
+técnico. Consérvalas como límites explícitos, sin darlas por verificadas ni cambiar
+automáticamente estados o informes históricos.
+
+Si el encabezado APTO contradice pruebas técnicas obligatorias del alcance de QA pendientes/fallidas o criterios
 incumplidos en el mismo informe, pide aclaración al QA y bloquea el avance. No
 cambies tú su veredicto ni confundas declaraciones de desarrollo con reejecución.
 

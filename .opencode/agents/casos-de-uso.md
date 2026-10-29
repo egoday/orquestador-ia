@@ -280,9 +280,11 @@ defecto ya observado. Una prueba de baja prioridad no queda automáticamente exc
 Marca por separado si es obligatoria para el cierre o complementaria, basándote
 en el alcance aprobado; no rebajes criterios obligatorios por falta de entorno.
 
-Asigna responsables por rol: QA, negocio, desarrollo o especialista del sistema,
-como propuesta cuando aún no estén acordados. QA diseña y ejecuta validaciones;
-desarrollo implementa los tests necesarios y corrige los hallazgos.
+Asigna las pruebas funcionales al cliente tras la entrega en SVN. Su obligatoriedad
+para la aceptación funcional no las convierte en prerrequisito de QA APTO,
+documentación o propuesta de cierre técnico. QA revisa código, tests y validaciones
+técnicas; desarrollo implementa los tests necesarios, asume la cobertura mínima y
+corrige los hallazgos.
 
 ### Paso 8. Definir entorno, orden y criterios de salida
 
@@ -296,8 +298,9 @@ para realizarlas en un entorno real. Expón los requisitos de ejecución pendien
 sin solicitar accesos ni ejecutar esas operaciones durante la redacción.
 
 Los criterios de salida deben exigir evidencia para los escenarios obligatorios,
-cobertura de criterios aprobados y tratamiento de fallos y bloqueos según el
-protocolo de QA. Un escenario obligatorio no ejecutado o bloqueado no equivale a
+cobertura funcional de criterios aprobados y tratamiento de fallos y bloqueos para
+la aceptación del cliente, separados del veredicto técnico QA. Un escenario
+obligatorio no ejecutado o bloqueado no equivale a
 superado. No declares el plan validado ni emitas veredicto APTO/NO APTO.
 
 El plan puede estar completo para revisión aunque falte un entorno para ejecutarlo,

@@ -131,7 +131,13 @@ no atribuye todos los cambios de la copia de trabajo a la tarea.
 Una prueba ejecutada exige comando exacto, directorio, código de salida y extracto
 literal del resultado. Distingue **Verificado**, **Declarado** y **No ejecutado**
 (motivo). No inventes métricas de cobertura ni herramientas disponibles.
-Una comprobación obligatoria pendiente impide QA APTO.
+Una comprobación técnica obligatoria dentro del alcance de QA pendiente impide
+QA APTO. Las pruebas funcionales corresponden al cliente tras la entrega en SVN
+y la cobertura mínima a implementación: QA no exige su ejecución o acreditación
+para emitir APTO. Estos pendientes externos no bloquean documentación ni propuesta
+de cierre técnico; se consignan sin presentarlos como verificados. APTO no equivale
+a aceptación funcional del cliente ni certifica cobertura mínima. Los defectos o
+incumplimientos demostrados no se omiten por esta separación de responsabilidades.
 
 ## 7. Resultado de subagentes
 

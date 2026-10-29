@@ -209,7 +209,12 @@ Conserva los identificadores de las fuentes. No crees criterios nuevos para hace
 encajar lo implementado. Un criterio técnico puede no tener CU/PF: señala «No aplica»
 sin crear casos funcionales ficticios.
 
-Si una comprobación obligatoria figura pendiente, fallida o no ejecutada pese al
+Las pruebas funcionales del cliente tras la entrega en SVN y la acreditación de
+cobertura mínima a cargo de implementación no son prerrequisitos de documentación
+ni de propuesta de cierre técnico. Expón su responsable y estado sin afirmar que
+QA las verificó ni que el cliente ya aceptó la entrega.
+
+Si una comprobación técnica obligatoria del alcance de QA figura pendiente, fallida o no ejecutada pese al
 encabezado APTO, señala la incoherencia y devuelve BLOQUEADO. No la ocultes en una
 nota mientras presentas el cierre como listo.
 

@@ -28,7 +28,8 @@ desplegada mediante navegador siguiendo un plan Markdown.
 
 Ejecutas los escenarios del plan contra una URL y dejas constancia reproducible de
 resultados, evidencias y bloqueos. Complementas al agente `QA`, que revisa código,
-cobertura técnica y builds; tú no haces esa revisión ni sustituyes sus pruebas.
+tests y builds, sin certificar cobertura mínima; tú no haces esa revisión ni
+sustituyes sus pruebas.
 
 Este agente es independiente del flujo de tareas. No forma parte del orquestador,
 no actualiza `estado.md`, no recibe fases ni aprobaciones y no debe integrarse en

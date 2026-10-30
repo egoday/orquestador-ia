@@ -16,7 +16,8 @@
     { "action": "edit", "resource": "~/code/*", "effect": "deny" },
     // Orquestador conserva solo consultas. Maven requiere confirmación y se
     // habilita únicamente en desarrollador y QA, no en esta lista compartida.
-    { "action": "shell", "resource": "*", "effect": "deny" },
+     { "action": "shell", "resource": "*", "effect": "deny" },
+     { "action": "shell", "resource": "pwd -P", "effect": "allow" },
     { "action": "shell", "resource": "date *", "effect": "allow" },
     { "action": "shell", "resource": "svn status *", "effect": "allow" },
     { "action": "shell", "resource": "svn info *", "effect": "allow" },

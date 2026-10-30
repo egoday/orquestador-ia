@@ -7,7 +7,7 @@ permissions:
   - { action: edit, resource: "*", effect: deny }
   - { action: edit, resource: "proyectos/*/tareas/*/implementacion-*.md", effect: allow }
   - { action: edit, resource: "~/code/*", effect: allow }
-  - { action: shell, resource: "mvn *", effect: ask }
+  - { action: shell, resource: "*", effect: ask }
   - { action: subagent, resource: "*", effect: deny }
   - { action: question, resource: "*", effect: deny }
 ---

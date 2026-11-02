@@ -6,6 +6,7 @@ steps: 80
 permissions:
   - { action: edit, resource: "*", effect: deny }
   - { action: edit, resource: "proyectos/*/tareas/*/analisis.md", effect: allow }
+  - { action: shell, resource: "*", effect: ask }
   - { action: subagent, resource: "*", effect: deny }
   - { action: question, resource: "*", effect: deny }
 ---

@@ -5,6 +5,7 @@ color: "#e01b24"
 permissions:
   - { action: edit, resource: "*", effect: deny }
   - { action: edit, resource: "proyectos/*/tareas/*/estado.md", effect: allow }
+  - { action: shell, resource: "*", effect: ask }
   - { action: subagent, resource: "*", effect: deny }
   - { action: subagent, resource: analista-tecnico, effect: allow }
   - { action: subagent, resource: casos-de-uso, effect: allow }
